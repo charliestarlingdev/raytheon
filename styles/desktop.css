@@ -122,3 +122,19 @@ nav .nav-account{
     float:right;
     width:110px;
 }
+
+.content-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width:100%;
+}
+
+.primary, .secondary, .tertiary{
+    display:block;
+    background-color:#a6192e70;
+    height: 700px;
+    width:33%;
+    margin: 10px 10px;
+}
