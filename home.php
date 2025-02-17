@@ -3,6 +3,10 @@
 
 <head>
     <title>Home Page</title>
+    <link rel="stylesheet" href="../styles/desktop.css">
+
+    <?php include "./includes/navbar.php" ?>
+
 </head>
 
 <body>
