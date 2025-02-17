@@ -137,7 +137,10 @@ nav .nav-account{
 }
 
 .primary, .secondary, .tertiary{
-    display:block;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
     background-color:#a6192e70;
     height: 100%;
     width:33%;
@@ -170,4 +173,54 @@ nav .nav-account{
 .search-bar-container label{
     font-size:22px;
     margin-right: 20px;
+}
+
+
+
+.geographic-container{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width:90%;
+    height: 30%;
+    border:1px solid black;
+}
+
+.new-container{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width:90%;
+    height: 30%;
+    border:1px solid black;
+}
+
+.missions-container{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width:90%;
+    height: 30%;
+    border:1px solid black;
+}
+
+.histogram-container{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width:90%;
+    height: 30%;
+    border:1px solid black;
 }

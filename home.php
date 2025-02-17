@@ -20,6 +20,14 @@
             <label for="search-bar">Find Product: </label>
             <input type="text" placeholder="Search" name="search-bar">
         </div>
+        <div class="geographic-container">
+            <h1>Geogrpahic Coverage</h1>
+            
+        </div>
+        <div class="new-container">
+            <h1>Section for More Data</h1>
+            
+        </div>
     </div>
 
     <div class="secondary">
@@ -29,7 +37,14 @@
     </div>
 
     <div class="tertiary">
-
+        <div class="missions-container">
+            <h1>Missions</h1>
+            
+        </div>
+        <div class="histogram-container">
+            <h1>Histogram Data</h1>
+            
+        </div>
    </div>
 </div>
 
