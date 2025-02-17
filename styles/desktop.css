@@ -1,0 +1,75 @@
+@import url('https://fonts.cdnfonts.com/css/microgramma-d-ot');
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fafafa	;
+}
+
+
+
+
+.form-container{
+    padding: 50 auto;
+}
+
+.main{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-sizing: border-box;
+    border: 0 solid #e5e7eb;
+    border-width: 1px;
+    
+}
+
+.main h1{
+    font-size:35px;
+    color:black;
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+
+.form-container form{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+}
+
+form input {
+    width:300px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 10px;
+
+}
+
+.submit-btn{
+    height:30px;
+    width: 200px;
+    background-color: #ce1126
+    ;
+    color:aliceblue;
+    font-size:16px;
+    border-radius: 10px;
+
+}
+
+.main h1 {
+    font-family: 'Microgramma D OT', 'Eurostile', sans-serif;
+    font-size: 30px; /* Adjust as needed */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #a6192e; /* Raytheon Red */
+    text-align: center;
+}
