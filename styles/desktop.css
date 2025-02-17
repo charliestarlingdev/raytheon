@@ -6,6 +6,8 @@ body, html {
 }
 
 
+
+
 body {
     display: flex;
     flex-direction: column;
@@ -129,12 +131,13 @@ nav .nav-account{
     align-items: flex-start;
     justify-content: space-between;
     width:100%;
+    height:calc(100vh - 80px);
 }
 
 .primary, .secondary, .tertiary{
     display:block;
     background-color:#a6192e70;
-    height: 700px;
+    height: 100%;
     width:33%;
     margin: 10px 10px;
 }
