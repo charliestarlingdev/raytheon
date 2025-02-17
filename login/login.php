@@ -14,7 +14,7 @@
     <div class="main">
         <h1>Sign In</h1>
         <div class= "form-container">
-            <form action="">
+            <form action="login.php" method="POST">
                 <input type="text" placeholder="Username" name="username" required>
                 <input type="password" placeholder="Password" name="username" required>
                 <button type="submit" class="submit-btn">Login</button>
