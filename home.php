@@ -16,7 +16,10 @@
 
 <div class="content-wrapper">
     <div class="primary">
-    
+        <div class="search-bar-container">
+            <label for="search-bar">Find Product: </label>
+            <input type="text" placeholder="Search" name="search-bar">
+        </div>
     </div>
 
     <div class="secondary">
