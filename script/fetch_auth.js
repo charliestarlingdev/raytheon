@@ -2,37 +2,54 @@ async function fetchProducts(accessToken) {
     try {
         const response = await fetch("http://localhost:5000/fetch-products", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ accessToken }) // Send access token to backend
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ accessToken })
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const result = await response.json();
+        let productIds = result.results?.searchresults?.map(product => product.id) || [];
 
-        // Initialize an array to store product IDs
-        let productIds = [];
-
-        // Extract and store product IDs
-        if (result.results && result.results.searchresults) {
-            productIds = result.results.searchresults.map(product => product.id);
-            console.log("Stored Product IDs:", productIds);
-        } else {
-            console.error("Unexpected response structure:", result);
+        if (productIds.length > 0) {
+            await fetchProductInfo(accessToken, productIds);
         }
-
-        // Now you can iterate over productIds later
-        return productIds;
-
     } catch (error) {
         console.error("Error fetching products:", error);
-        return [];
     }
 }
+
+async function fetchProductInfo(accessToken, productIds) {
+    try {
+        const response = await fetch("http://localhost:5000/fetch-product-info", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ accessToken, productIds })
+        });
+
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+        const productData = await response.json();
+        const validProducts = productData.filter(p => p.centre && p.footprint && p.footprint.coordinates && !p.error);
+
+        if (validProducts.length === 0) {
+            console.warn("⚠️ No valid locations found.");
+            return;
+        }
+
+        const markers = validProducts.map(({ productId, centre, footprint }) => {
+            const [lat, lng] = centre.split(',').map(Number);
+            const coordinates = footprint.coordinates[0].map(coord => [coord[1], coord[0]]); 
+            return { lat, lng, productId, coordinates };
+        });
+
+        addMarkersToMap(markers);
+
+    } catch (error) {
+        console.error("Error fetching product info:", error);
+    }
+}
+
 
 async function fetchAccessToken() {
     const urlencoded = new URLSearchParams();
@@ -50,21 +67,15 @@ async function fetchAccessToken() {
             body: urlencoded
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const result = await response.json();
         if (result.access_token) {
-            console.log("Access Token:", result.access_token);
-            fetchProducts(result.access_token);
-        } else {
-            console.error("Failed to get access token:", result);
+            await fetchProducts(result.access_token);
         }
     } catch (error) {
         console.error("Token fetch error:", error);
     }
 }
 
-// Call the function to fetch the access token
 fetchAccessToken();
