@@ -9,15 +9,7 @@
 
     <script defer src="script/map.js"></script>
     <script defer src="script/fetch_auth.js"></script>
-    <nav>
-    <ul>
-        <li><a href="">Map</a></li>
-        <li><a href="">Misions</a></li>
-        <li><a href="">Coverage</a></li>
-        <li><a href="">Misions</a></li>
-        <li class="nav-account"><a href="">Account</a></li>
-    </ul>
-</nav>
+    <?php include "includes/navbar.php"?>
 </head>
 
 <body>
